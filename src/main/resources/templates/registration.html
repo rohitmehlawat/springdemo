@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Registration</title>
+<meta name="viewport" content="width=device-width",initial-scale=1>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+<div class="row">
+<div class="card bg-info text-white col-md-4 offset-md-4" style="padding:0px;margin-top: 50px;" >
+  <div class="card-header">Registration</div>
+  <div class="card-body">
+  <form action="/user/registration" th:object="${user}" method="post" enctype="utf8" >
+	<div class="form-group">
+    <label >First Name</label>
+    <input type="text" th:field="*{firstName}" class="form-control" id="firstName">
+    <p th:each="error: ${#fields.errors('firstName')}"
+          th:text="${error}">Validation error</p>
+  </div>
+  <div class="form-group">
+    <label >Last Name</label>
+    <input type="text" th:field="*{lastName}" class="form-control" id="lastName">
+    <p th:each="error : ${#fields.errors('lastName')}"
+          th:text="${error}">Validation error</p>
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" th:field="*{email}" class="form-control" id="email">
+    <p th:each="error : ${#fields.errors('email')}"
+          th:text="${error}">Validation error</p>
+  </div>
+  <div class="form-group">
+    <label for="pwd">Password:</label>
+    <input type="password" th:field="*{password}" class="form-control" id="pwd">
+    <p th:each="error : ${#fields.errors('password')}"
+          th:text="${error}">Validation error</p>
+  </div>
+  
+  <div class="form-group">
+    <label for="pwd">Confirm Password:</label>
+    <input type="password" th:field="*{matchingPassword}" class="form-control" id="cPwd">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+  
+  
+  </div> 
+  
+</div>
+</div>
+
+
+</div>
+</body>
+</html>
