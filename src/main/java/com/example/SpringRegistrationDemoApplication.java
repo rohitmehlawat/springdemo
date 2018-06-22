@@ -20,6 +20,7 @@ public class SpringRegistrationDemoApplication {
 		return viewName;
 	}
 	public static void main(String[] args) {
+		
 		SpringApplication.run(SpringRegistrationDemoApplication.class, args);
 	}
 }
